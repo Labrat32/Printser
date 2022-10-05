@@ -33,12 +33,14 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
 
   return (
     <RNEListItem
+      containerStyle={{backgroundColor: 'rgba(96, 113, 249, 0.2)', elevation: 16, padding: 10, marginLeft: 20, marginRight: 20, margin: 8, borderRadius: 10, height: 180, borderBottomWidth: 0}}
       bottomDivider
       onPress={() => {
         navigation.navigate('Single', singleMedia);
       }}
     >
       <Avatar
+        containerStyle={{height: 140, width: 140}}
         size="large"
         source={{uri: mediaUrl + singleMedia.thumbnails.w160}}
       />

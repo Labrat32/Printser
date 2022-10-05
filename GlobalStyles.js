@@ -3,7 +3,8 @@ export default StyleSheet.create({
   droidSafeArea: {
     backgroundColor: '#272848',
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     paddingTop: Platform.OS === 'android' ? 40 : 0,
-    flex: 1,
   },
 });

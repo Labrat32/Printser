@@ -17,7 +17,7 @@ const List = ({navigation, myFilesOnly}) => {
         <ListItem
           navigation={navigation}
           singleMedia={item}
-          myFilesOnly={myFilesOnlys}
+          myFilesOnly={myFilesOnly}
         />
       )}
     />

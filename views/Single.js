@@ -10,7 +10,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import {useTag} from '../hooks/ApiHooks';
 
 const Single = ({route}) => {
-  const {filename, title, description, user_id, media_type} = route.params;
+  const {filename, title, description, user_id, media_type } = route.params;
   const [videoRef, setVideoRef] = useState(null);
   const [avatar, setAvatar] = useState('https://placekitten.com/140');
   const {getFilesByTag} = useTag();

@@ -69,7 +69,7 @@ const Upload = ({navigation}) => {
           onPress: () => {
             resetForm();
             setUpdate(!update);
-            navigation.navigate('Home');
+            navigation.navigate('Store');
           },
         },
       ]);

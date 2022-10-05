@@ -12,7 +12,6 @@ import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import MyFiles from '../views/MyFiles';
 import ModifyFile from '../views/ModifyFile';
-import {color} from '@rneui/themed/dist/config';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -31,7 +30,7 @@ const TabScreen = () => {
       <Tab.Screen
         name="Store"
         component={Store}
-        options={{tabBarIcon: () => <Icon name="home" color={'#EEFFFF'} />}}
+        options={{tabBarIcon: () => <Icon size={27} name="store" color={'#EEFFFF'} />}}
       />
       <Tab.Screen
         name="Profile"

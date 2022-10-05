@@ -38,31 +38,46 @@ const Profile = ({navigation}) => {
     <View style={{flex:1, backgroundColor: '#272848'}}>
       <Card containerStyle={{backgroundColor: '#262848', borderWidth: 0, elevation: 0, margin: 0, padding: 0, flex: 1}}>
         <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}/>
-        <ListItem containerStyle={{backgroundColor: '#262848'}}>
-          <Avatar
-            icon={{name: 'person', type: 'material'}}
-            containerStyle={{backgroundColor: '#262848'}}
-          />
-          <Text style={{color: '#EEFFFF'}}>Full name: {user.full_name}</Text>
-        </ListItem>
-        <ListItem containerStyle={{backgroundColor: '#262848'}}>
-          <Avatar
-            icon={{name: 'contact-mail', type: 'material'}}
-            containerStyle={{backgroundColor: '#262848'}}
-          />
-          <Text style={{color: '#EEFFFF'}}>{user.email}</Text>
-        </ListItem>
-        <ListItem containerStyle={{backgroundColor: '#262848'}}>
-          <Avatar
-            icon={{name: 'person', type: 'material'}}
-            containerStyle={{backgroundColor: '#262848'}}
-          />
-        <Text style={{color: '#EEFFFF'}}>{user.username}</Text>
-        </ListItem>
-        <Card.Title style={{color: '#EEFFFF'}}>
-          id: {user.user_id}
-        </Card.Title>
 
+        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
+          <View style={{display:'flex', flexDirection: 'column'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Full name</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.full_name}</Text>
+          </View>
+        </ListItem>
+
+        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+          <Avatar icon={{name: 'contact-mail', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
+          <View style={{display:'flex', flexDirection: 'column'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Email</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.email}</Text>
+          </View>
+        </ListItem>
+
+        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
+          <View style={{display:'flex', flexDirection: 'column'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Username</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.username}</Text>
+          </View>
+        </ListItem>
+
+        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
+          <View style={{display:'flex', flexDirection: 'column'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Hometown</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}></Text>
+          </View>
+        </ListItem>
+
+        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
+          <View style={{display:'flex', flexDirection: 'column'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Password</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.password}</Text>
+          </View>
+        </ListItem>
 
         <View style={{flexDirection:'row', alignSelf: 'center'}}>
           <Button
@@ -71,9 +86,12 @@ const Profile = ({navigation}) => {
             width: 140,
             height: 42,
             borderRadius: 30,
-            backgroundColor: '#54C1F0',
+            backgroundColor: '#EEFFFF',
+            margin: 20,
+            elevation: 15
           }}
             title={'MyFiles'}
+            titleStyle={{color: '#000000'}}
             onPress={() => {
               navigation.navigate('MyFiles');
             }}
@@ -84,9 +102,12 @@ const Profile = ({navigation}) => {
               width: 140,
               height: 42,
               borderRadius: 30,
-              backgroundColor: '#54C1F0',
+              backgroundColor: '#EEFFFF',
+              margin: 20,
+              elevation: 15
             }}
             title={'Logout'}
+            titleStyle={{color: '#000000'}}
             onPress={logout} />
           </View>
       </Card>
