@@ -19,12 +19,13 @@ const Stack = createNativeStackNavigator();
 const TabScreen = () => {
   return (
     <Tab.Navigator
-    screenOptions={{
-      tabBarStyle: {
-        borderTopWidth: 0,
-        backgroundColor: '#262848',
-        paddingTop: 12,
-        color: '#262848'
+      screenOptions={{
+        tabBarStyle: {
+          borderTopWidth: 0,
+          backgroundColor: '#262848',
+          paddingTop: 8,
+          color: '#262848',
+          borderTopWidth: 0.2
       },
     }}>
       <Tab.Screen
@@ -33,16 +34,16 @@ const TabScreen = () => {
         options={{tabBarIcon: () => <Icon size={27} name="store" color={'#EEFFFF'} />}}
       />
       <Tab.Screen
+        name="Post"
+        component={Upload}
+        options={{
+          tabBarIcon: () => <Icon name="add-circle-outline" color={'#EEFFFF'} />,
+        }}
+      />
+      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{tabBarIcon: () => <Icon name="person" color={'#EEFFFF'}/>}}
-      />
-      <Tab.Screen
-        name="Upload"
-        component={Upload}
-        options={{
-          tabBarIcon: () => <Icon name="cloud-upload" color={'#EEFFFF'} />,
-        }}
       />
     </Tab.Navigator>
   );
@@ -54,7 +55,6 @@ const StackScreen = () => {
     <Stack.Navigator
     screenOptions={{
       tabBarStyle: {
-        borderTopWidth: 0,
         backgroundColor: '#262848',
       },
     }}>

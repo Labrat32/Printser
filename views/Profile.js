@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useTag} from '../hooks/ApiHooks';
 import {mediaUrl} from '../utils/Variables';
 import PropTypes from 'prop-types';
-import {TextComponent, View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 const Profile = ({navigation}) => {
   const {isLoggedIn, setIsLoggedIn, user} = useContext(MainContext);
@@ -39,7 +39,7 @@ const Profile = ({navigation}) => {
       <Card containerStyle={{backgroundColor: '#262848', borderWidth: 0, elevation: 0, margin: 0, padding: 0, flex: 1}}>
         <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}/>
 
-        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+        <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Full name</Text>
@@ -47,7 +47,7 @@ const Profile = ({navigation}) => {
           </View>
         </ListItem>
 
-        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+        <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'contact-mail', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Email</Text>
@@ -55,7 +55,7 @@ const Profile = ({navigation}) => {
           </View>
         </ListItem>
 
-        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+        <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Username</Text>
@@ -63,7 +63,7 @@ const Profile = ({navigation}) => {
           </View>
         </ListItem>
 
-        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+        <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Hometown</Text>
@@ -71,7 +71,7 @@ const Profile = ({navigation}) => {
           </View>
         </ListItem>
 
-        <ListItem containerStyle={{backgroundColor: '#262848', elevation: 14, borderRadius: 30, marginTop: 20, padding: 10}}>
+        <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Password</Text>
@@ -104,7 +104,7 @@ const Profile = ({navigation}) => {
               borderRadius: 30,
               backgroundColor: '#EEFFFF',
               margin: 20,
-              elevation: 15
+              elevation: 15,
             }}
             title={'Logout'}
             titleStyle={{color: '#000000'}}
@@ -114,6 +114,20 @@ const Profile = ({navigation}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  lists: {
+    backgroundColor: '#262848',
+    elevation: 14,
+    borderRadius: 30,
+    marginTop: 20,
+    padding: 6,
+    borderWidth: 0.6,
+    borderColor: '#000000',
+    marginLeft: 15,
+    marginRight: 15
+  },
+});
 
 Profile.propTypes = {
   navigation: PropTypes.object,

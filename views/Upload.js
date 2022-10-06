@@ -5,7 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMedia, useTag} from '../hooks/ApiHooks';
-import {Alert} from 'react-native';
+import {Alert, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
@@ -88,8 +88,10 @@ const Upload = ({navigation}) => {
   };
 
   return (
-    <Card>
-      <Card.Image source={{uri: mediafile || 'https://placekitten.com/300'}} />
+    <Card containerStyle={{flex:1, margin: 0, padding:0, backgroundColor: '#262848', borderWidth:0 }}>
+      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation:10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}}>
+      <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 50}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage} />
+      </Card.Image>
       <Controller
         control={control}
         rules={{
@@ -102,6 +104,7 @@ const Upload = ({navigation}) => {
             onChangeText={onChange}
             value={value}
             placeholder="Title"
+            placeholderTextColor={'#EEFFFF'}
             autoCapitalize="words"
             errorMessage={
               (errors.title?.type === 'required' && (
@@ -121,18 +124,20 @@ const Upload = ({navigation}) => {
             onChangeText={onChange}
             value={value}
             placeholder="Description"
+            placeholderTextColor={'#EEFFFF'}
           />
         )}
         name="description"
       />
-
-      <Button title="Select media" onPress={pickImage} />
-      <Button title="Reset" onPress={resetForm} />
-      <Button
-        title="Upload media"
-        loading={isLoading}
-        onPress={handleSubmit(onSubmit)}
-      />
+      <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', padding: 30}}>
+        <Button buttonStyle={{backgroundColor: '#54C1F0', borderRadius: 30, width: 120}} title="Reset" onPress={resetForm} />
+        <Button
+          buttonStyle={{backgroundColor: '#54C1F0', borderRadius: 30, width: 120}}
+          title="Upload media"
+          loading={isLoading}
+          onPress={handleSubmit(onSubmit)}
+        />
+      </View>
     </Card>
   );
 };
