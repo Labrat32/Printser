@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Button, Text, Card} from '@rneui/themed';
+import {Input, Button, Text, Card, Icon} from '@rneui/themed';
 import {Controller, useForm} from 'react-hook-form';
 import * as ImagePicker from 'expo-image-picker';
 import {useState} from 'react';
@@ -90,7 +90,9 @@ const Upload = ({navigation}) => {
   return (
     <Card containerStyle={{flex:1, margin: 0, padding:0, backgroundColor: '#262848', borderWidth:0 }}>
       <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation:10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}}>
-      <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 50}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage} />
+      <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 50}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage}>Add Image
+      <Icon name="add-circle-outline" color={'#000000'} style={{marginLeft: 3}} />
+      </Button>
       </Card.Image>
       <Controller
         control={control}
@@ -106,6 +108,7 @@ const Upload = ({navigation}) => {
             placeholder="Title"
             placeholderTextColor={'#EEFFFF'}
             autoCapitalize="words"
+            inputStyle={{color:'#EEFFFF'}}
             errorMessage={
               (errors.title?.type === 'required' && (
                 <Text>This is required.</Text>
@@ -124,6 +127,7 @@ const Upload = ({navigation}) => {
             onChangeText={onChange}
             value={value}
             placeholder="Description"
+            inputStyle={{color:'#EEFFFF'}}
             placeholderTextColor={'#EEFFFF'}
           />
         )}

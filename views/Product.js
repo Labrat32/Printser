@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {ScrollView, ActivityIndicator} from 'react-native';
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/Variables';
@@ -8,9 +8,11 @@ import {Video} from 'expo-av';
 import {useEffect} from 'react';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {useTag} from '../hooks/ApiHooks';
+import {MainContext} from '../contexts/MainContext';
 
-const Single = ({route}) => {
+const Product = ({route}) => {
   const {filename, title, description, user_id, media_type } = route.params;
+  const {user} = useContext(MainContext);
   const [videoRef, setVideoRef] = useState(null);
   const [avatar, setAvatar] = useState('https://placekitten.com/140');
   const {getFilesByTag} = useTag();
@@ -65,10 +67,8 @@ const Single = ({route}) => {
   }, [videoRef]);
 
   return (
-    <ScrollView>
-      <Card>
-        <Card.Title>{title}</Card.Title>
-        <Card.Divider />
+    <ScrollView style={{padding:0, backgroundColor: '#262848'}}>
+      <Card containerStyle={{backgroundColor: '#262848', margin: 0, borderWidth:0, padding: 0}}>
         {media_type === 'image' ? (
           <FullSizeImage
             source={{uri: mediaUrl + filename}}
@@ -86,21 +86,21 @@ const Single = ({route}) => {
             useNativeControls
           />
         )}
-        <Card.Divider />
-        <ListItem>
-          <Text>{description}</Text>
+        <Card.Title  style={{color: '#EEFFFF', alignSelf: 'flex-start', marginLeft: 20, fontSize: 26}}>{title}</Card.Title>
+        <ListItem containerStyle={{backgroundColor: '#262848'}}>
+          <Text style={{color: '#EEFFFF', marginLeft: 25}}>{description}</Text>
         </ListItem>
-        <ListItem>
-          <Avatar source={{uri: avatar}} />
-          <Text>{user_id}</Text>
+        <ListItem containerStyle={{backgroundColor: '#262848', marginLeft: 25}}>
+          <Avatar avatarStyle={{borderRadius: 15}} source={{uri: avatar}} />
+          <Text style={{color: '#EEFFFF'}}>{user.username}</Text>
         </ListItem>
       </Card>
     </ScrollView>
   );
 };
 
-Single.propTypes = {
+Product.propTypes = {
   route: PropTypes.object,
 };
 
-export default Single;
+export default Product;

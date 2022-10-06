@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Profile from '../views/Profile';
 import Store from '../views/Store';
-import Single from '../views/Single';
+import Product from '../views/Product';
 import Login from '../views/Login';
 import Upload from '../views/Upload';
 import {useContext} from 'react';
@@ -65,7 +65,7 @@ const StackScreen = () => {
             component={TabScreen}
             options={{headerShown: false}}
           />
-          <Stack.Screen name="Single" component={Single} />
+          <Stack.Screen name="Product" component={Product} />
           <Stack.Screen name="MyFiles" component={MyFiles} />
           <Stack.Screen name="ModifyFile" component={ModifyFile} />
         </>
