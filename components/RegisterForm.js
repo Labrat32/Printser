@@ -89,7 +89,7 @@ const RegisterForm = () => {
             placeholderTextColor={'#EEFFFF'}
             errorMessage={
               (errors.username?.type === 'required' && (
-                <Text>This is required.</Text>
+                <Text style={{color: '#f71414'}}>This is required.</Text>
               )) ||
               (errors.username?.type === 'minLength' && <Text>Min 2.</Text>) ||
               (errors.username?.type === 'validate' && (
@@ -168,7 +168,9 @@ const RegisterForm = () => {
         )}
         name="email"
       />
-      {errors.email && <Text>This is required.</Text>}
+      {errors.email && (
+        <Text style={{color: '#f71414'}}>This is required.</Text>
+      )}
 
       <Controller
         control={control}
@@ -199,7 +201,7 @@ const RegisterForm = () => {
             autoCapitalize="none"
             errorMessage={
               (errors.password?.type === 'required' && (
-                <Text>This is required.</Text>
+                <Text style={{color: '#f71414'}}>This is required.</Text>
               )) ||
               (errors.password?.type === 'minLength' && (
                 <Text>{errors.minLength.message}</Text>

@@ -21,29 +21,43 @@ const TabScreen = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          borderTopWidth: 0,
           backgroundColor: '#262848',
           paddingTop: 8,
           color: '#262848',
-          borderTopWidth: 0.2
-      },
-    }}>
+          borderTopWidth: 0.2,
+        },
+      }}
+    >
       <Tab.Screen
         name="Store"
         component={Store}
-        options={{tabBarIcon: () => <Icon size={27} name="store" color={'#EEFFFF'} />}}
+        options={{
+          tabBarIcon: () => <Icon size={27} name="store" color={'#EEFFFF'} />,
+          title: 'Store',
+          headerStyle: {backgroundColor: '#262848'},
+          headerTintColor: '#fff',
+        }}
       />
       <Tab.Screen
         name="Post"
         component={Upload}
         options={{
-          tabBarIcon: () => <Icon name="add-circle-outline" color={'#EEFFFF'} />,
+          tabBarIcon: () => (
+            <Icon name="add-circle-outline" color={'#EEFFFF'} />
+          ),
+          title: 'Post',
+          headerStyle: {backgroundColor: '#262848'},
+          headerTintColor: '#fff',
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{tabBarIcon: () => <Icon name="person" color={'#EEFFFF'}/>}}
+        options={{
+          tabBarIcon: () => <Icon name="person" color={'#EEFFFF'} />,
+          headerStyle: {backgroundColor: '#262848'},
+          headerTintColor: '#fff',
+        }}
       />
     </Tab.Navigator>
   );
@@ -53,11 +67,12 @@ const StackScreen = () => {
   const {isLoggedIn} = useContext(MainContext);
   return (
     <Stack.Navigator
-    screenOptions={{
-      tabBarStyle: {
-        backgroundColor: '#262848',
-      },
-    }}>
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#262848',
+        },
+      }}
+    >
       {isLoggedIn ? (
         <>
           <Stack.Screen
