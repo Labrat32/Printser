@@ -130,10 +130,11 @@ const Upload = ({navigation}) => {
         name="description"
       />
       <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', padding: 30}}>
-        <Button buttonStyle={{backgroundColor: '#54C1F0', borderRadius: 30, width: 120}} title="Reset" onPress={resetForm} />
+        <Button buttonStyle={{backgroundColor: '#EEFFFF', borderRadius: 30, width: 120}} title="Reset" titleStyle={{color: '#000000'}} onPress={resetForm} />
         <Button
           buttonStyle={{backgroundColor: '#54C1F0', borderRadius: 30, width: 120}}
           title="Upload media"
+          titleStyle={{color: '#000000'}}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />
