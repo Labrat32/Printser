@@ -38,16 +38,34 @@ const Login = ({navigation}) => {
         flex: 1,
       }}
     >
-      {showRegForm ? <RegisterForm /> : <LoginForm />}
-      <View style={{flex: 1, justifyContent: 'flex-end', marginBottom: 10,}}>
+      <View
+        style={{
+          backgroundColor: '#272848',
+          flex: 10,
+        }}
+      >
+        {showRegForm ? <RegisterForm /> : <LoginForm />}
+      </View>
+      <View
+        style={{
+          flex: 0.5,
+          justifyContent: 'flex-end',
+          marginBottom: 20,
+          backgroundColor: '#272848',
+        }}
+      >
         <Button
           buttonStyle={{
-            width: 270,
+            width: '100%',
             height: 40,
             backgroundColor: '#262848',
             alignSelf: 'center',
           }}
-          title={showRegForm ? 'Already have an account? Sign in!' : "Don't have an account? Sign up!"}
+          title={
+            showRegForm
+              ? 'Already have an account? Sign in!'
+              : "Don't have an account? Sign up!"
+          }
           onPress={() => {
             setShowRegForm(!showRegForm);
           }}
