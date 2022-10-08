@@ -33,14 +33,15 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
 
   return (
     <RNEListItem
-      containerStyle={{backgroundColor: 'rgba(96, 113, 249, 0.2)', padding: 10, marginLeft: 10, marginRight: 10, margin: 8, borderRadius: 10, height: 180, borderBottomWidth: 0}}
+      containerStyle={{backgroundColor: 'rgba(96, 113, 249, 0.2)', padding: 0, marginLeft: 10, marginRight: 10, margin: 8, borderRadius: 10, height: 180, borderBottomWidth: 0}}
       bottomDivider
       onPress={() => {
         navigation.navigate('Product', singleMedia);
       }}
     >
       <Avatar
-        containerStyle={{height: 180, width: 140}}
+        containerStyle={{height: 180, width: 150}}
+        avatarStyle={{borderBottomLeftRadius: 10, borderTopLeftRadius: 10}}
         size="large"
         source={{uri: mediaUrl + singleMedia.thumbnails.w160}}
       />
@@ -48,7 +49,7 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
         <RNEListItem.Title style={{color: '#EEFFFF'}} numberOfLines={1} h4>
           {singleMedia.title}
         </RNEListItem.Title>
-        <RNEListItem.Subtitle style={{color: '#EEFFFF'}} numberOfLines={1}>
+        <RNEListItem.Subtitle style={{color: '#EEFFFF'}} numberOfLines={4}>
           {singleMedia.description}
         </RNEListItem.Subtitle>
         {myFilesOnly && (

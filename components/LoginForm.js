@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
 import {useLogin} from '../hooks/ApiHooks';
-import {Button, Input, Text} from '@rneui/themed';
+import {Button, Icon, Input, Text} from '@rneui/themed';
 import logo from '../assets/asd.png';
 
 const LoginForm = () => {

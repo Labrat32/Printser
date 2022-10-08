@@ -25,25 +25,36 @@ const TabScreen = () => {
           backgroundColor: '#262848',
           paddingTop: 8,
           color: '#262848',
-          borderTopWidth: 0.2
+          borderTopWidth: 0.2,
+          borderTopColor: '#000000'
       },
     }}>
       <Tab.Screen
         name="Store"
         component={Store}
-        options={{tabBarIcon: () => <Icon size={27} name="store" color={'#EEFFFF'} />}}
+        options={{tabBarIcon: () => <Icon size={27} name="store" color={'#EEFFFF'} />,
+        title:'Store',
+        headerStyle:{backgroundColor: '#262848', elevation: 15, shadowColor: '#000000', borderBottomWidth: 0.2, borderBottomColor: '#000000'},
+        headerTintColor: '#EEFFFF'}}
       />
       <Tab.Screen
         name="Post"
         component={Upload}
         options={{
           tabBarIcon: () => <Icon name="add-circle-outline" color={'#EEFFFF'} />,
+          title:'Post',
+          headerStyle:{backgroundColor: '#262848', elevation: 15, shadowColor: '#000000', borderBottomWidth: 0.2, borderBottomColor: '#000000'},
+          headerTintColor: '#EEFFFF'
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{tabBarIcon: () => <Icon name="person" color={'#EEFFFF'}/>}}
+        options={{tabBarIcon: () => <Icon name="person" color={'#EEFFFF'}/>,
+        title:'Profile',
+        headerStyle:{backgroundColor: '#262848', elevation: 15, shadowColor: '#000000', borderBottomWidth: 0.2, borderBottomColor: '#000000'},
+        headerTintColor: '#EEFFFF'
+      }}
       />
     </Tab.Navigator>
   );
@@ -65,9 +76,48 @@ const StackScreen = () => {
             component={TabScreen}
             options={{headerShown: false}}
           />
-          <Stack.Screen name="Product" component={Product} />
-          <Stack.Screen name="MyFiles" component={MyFiles} />
-          <Stack.Screen name="ModifyFile" component={ModifyFile} />
+          <Stack.Screen
+            options={{
+              title:'Product',
+              headerStyle:{
+                backgroundColor: '#262848',
+                elevation: 15,
+                shadowColor: '#000000',
+                borderBottomWidth: 0.2,
+                borderBottomColor: '#000000'
+              },
+              headerTintColor: '#EEFFFF'
+            }}
+            name="Product"
+            component={Product} />
+          <Stack.Screen
+            options={{
+              title:'My Files',
+              headerStyle:{
+                backgroundColor: '#262848',
+                elevation: 15,
+                shadowColor: '#000000',
+                borderBottomWidth: 0.2,
+                borderBottomColor: '#000000'
+              },
+              headerTintColor: '#EEFFFF'
+            }}
+            name="MyFiles"
+            component={MyFiles} />
+          <Stack.Screen
+            options={{
+              title:'Modify File',
+              headerStyle:{
+                backgroundColor: '#262848',
+                elevation: 15,
+                shadowColor: '#000000',
+                borderBottomWidth: 0.2,
+                borderBottomColor: '#000000'
+              },
+              headerTintColor: '#EEFFFF'
+            }}
+            name="ModifyFile"
+            component={ModifyFile} />
         </>
       ) : (
         <Stack.Screen

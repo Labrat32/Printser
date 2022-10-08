@@ -89,12 +89,13 @@ const Upload = ({navigation}) => {
 
   return (
     <Card containerStyle={{flex:1, margin: 0, padding:0, backgroundColor: '#262848', borderWidth:0 }}>
-      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation:10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}}>
-      <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 50}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage}>Add Image
+      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation:10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}} style={{height: 200}}>
+      <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 75}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage}>Add Image
       <Icon name="add-circle-outline" color={'#000000'} style={{marginLeft: 3}} />
       </Button>
       </Card.Image>
       <Controller
+      defaultValue=''
         control={control}
         rules={{
           required: true,
@@ -102,16 +103,26 @@ const Upload = ({navigation}) => {
         }}
         render={({field: {onChange, onBlur, value}}) => (
           <Input
+            inputStyle={{
+              marginTop: 30,
+              margin: 40,
+              backgroundColor: '#262848',
+              borderRadius: 30,
+              elevation: 17,
+              color: '#EEFFFF',
+              borderWidth: 1,
+              height: 50,
+              paddingLeft: 20,
+            }}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Title"
             placeholderTextColor={'#EEFFFF'}
             autoCapitalize="words"
-            inputStyle={{color:'#EEFFFF'}}
             errorMessage={
               (errors.title?.type === 'required' && (
-                <Text>This is required.</Text>
+                <Text style={{color: '#EEFFFF'}}>This is required.</Text>
               )) ||
               (errors.title?.type === 'minLength' && <Text>Min 3 chars!</Text>)
             }
@@ -123,11 +134,21 @@ const Upload = ({navigation}) => {
         control={control}
         render={({field: {onChange, onBlur, value}}) => (
           <Input
+            inputStyle={{
+              marginTop: 10,
+              margin: 40,
+              backgroundColor: '#262848',
+              borderRadius: 30,
+              elevation: 17,
+              color: '#EEFFFF',
+              borderWidth: 1,
+              height: 50,
+              paddingLeft: 20,
+            }}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Description"
-            inputStyle={{color:'#EEFFFF'}}
             placeholderTextColor={'#EEFFFF'}
           />
         )}

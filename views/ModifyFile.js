@@ -47,8 +47,8 @@ const ModifyFile = ({navigation, route}) => {
   };
 
   return (
-    <Card>
-      <Card.Image source={{uri: mediaUrl + file.filename}} />
+    <Card containerStyle={{flex:1, margin: 0, backgroundColor: '#262848', borderColor: '#262848'}}>
+      <Card.Image source={{uri: mediaUrl + file.filename}} style={{height: 200}}/>
       <Controller
         control={control}
         rules={{
@@ -57,6 +57,17 @@ const ModifyFile = ({navigation, route}) => {
         }}
         render={({field: {onChange, onBlur, value}}) => (
           <Input
+          inputStyle={{
+            marginTop: 30,
+            margin: 40,
+            backgroundColor: '#262848',
+            borderRadius: 30,
+            elevation: 17,
+            color: '#EEFFFF',
+            borderWidth: 1,
+            height: 50,
+            paddingLeft: 20,
+          }}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -76,6 +87,17 @@ const ModifyFile = ({navigation, route}) => {
         control={control}
         render={({field: {onChange, onBlur, value}}) => (
           <Input
+          inputStyle={{
+            marginTop: 10,
+            margin: 40,
+            backgroundColor: '#262848',
+            borderRadius: 30,
+            elevation: 17,
+            color: '#EEFFFF',
+            borderWidth: 1,
+            height: 50,
+            paddingLeft: 20,
+          }}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -87,6 +109,8 @@ const ModifyFile = ({navigation, route}) => {
 
       <Button
         title="Update"
+        titleStyle={{color: '#000000'}}
+        buttonStyle={{backgroundColor: '#54C1F0', borderRadius: 30, width: 120, alignSelf: 'center',}}
         loading={isLoading}
         onPress={handleSubmit(onSubmit)}
       />

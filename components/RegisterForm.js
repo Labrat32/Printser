@@ -89,11 +89,11 @@ const RegisterForm = () => {
             placeholderTextColor={'#EEFFFF'}
             errorMessage={
               (errors.username?.type === 'required' && (
-                <Text>This is required.</Text>
+                <Text style={{color: '#EEFFFF'}}>This is required.</Text>
               )) ||
-              (errors.username?.type === 'minLength' && <Text>Min 2.</Text>) ||
+              (errors.username?.type === 'minLength' && <Text style={{color: '#EEFFFF'}}>Min 2.</Text>) ||
               (errors.username?.type === 'validate' && (
-                <Text>{errors.username.message}</Text>
+                <Text style={{color: '#EEFFFF'}}>{errors.username.message}</Text>
               ))
             }
           />
@@ -163,12 +163,11 @@ const RegisterForm = () => {
             placeholder="Email"
             placeholderTextColor={'#EEFFFF'}
             autoCapitalize="none"
-            errorMessage={errors.email && <Text>{errors.email.message}</Text>}
+            errorMessage={errors.email && <Text style={{color: '#EEFFFF'}}>{errors.email.message}</Text>}
           />
         )}
         name="email"
       />
-      {errors.email && <Text>This is required.</Text>}
 
       <Controller
         control={control}
@@ -199,10 +198,10 @@ const RegisterForm = () => {
             autoCapitalize="none"
             errorMessage={
               (errors.password?.type === 'required' && (
-                <Text>This is required.</Text>
+                <Text style={{color: '#EEFFFF'}}>This is required.</Text>
               )) ||
               (errors.password?.type === 'minLength' && (
-                <Text>{errors.minLength.message}</Text>
+                <Text style={{color: '#EEFFFF'}}>{errors.minLength.message}</Text>
               ))
             }
           />
@@ -244,7 +243,7 @@ const RegisterForm = () => {
             autoCapitalize="none"
             errorMessage={
               errors.confirmPassword && (
-                <Text>{errors.confirmPassword.message}</Text>
+                <Text style={{color: '#EEFFFF'}}>{errors.confirmPassword.message}</Text>
               )
             }
           />

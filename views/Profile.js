@@ -37,7 +37,7 @@ const Profile = ({navigation}) => {
   return (
     <View style={{flex:1, backgroundColor: '#272848'}}>
       <Card containerStyle={{backgroundColor: '#262848', borderWidth: 0, elevation: 0, margin: 0, padding: 0, flex: 1}}>
-        <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}/>
+        <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}} style={{height: 200}}/>
 
         <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
@@ -90,7 +90,7 @@ const Profile = ({navigation}) => {
             margin: 20,
             elevation: 15
           }}
-            title={'MyFiles'}
+            title={'My Files'}
             titleStyle={{color: '#000000'}}
             onPress={() => {
               navigation.navigate('MyFiles');
