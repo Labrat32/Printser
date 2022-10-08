@@ -95,7 +95,6 @@ const Upload = ({navigation}) => {
       </Button>
       </Card.Image>
       <Controller
-      defaultValue=''
         control={control}
         rules={{
           required: true,

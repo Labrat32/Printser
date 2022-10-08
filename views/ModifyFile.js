@@ -35,7 +35,7 @@ const ModifyFile = ({navigation, route}) => {
           text: 'Ok',
           onPress: () => {
             setUpdate(!update);
-            // navigation.navigate('MyFiles');
+              navigation.navigate('MyFiles');
           },
         },
       ]);
@@ -49,6 +49,7 @@ const ModifyFile = ({navigation, route}) => {
   return (
     <Card containerStyle={{flex:1, margin: 0, backgroundColor: '#262848', borderColor: '#262848'}}>
       <Card.Image source={{uri: mediaUrl + file.filename}} style={{height: 200}}/>
+      <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 20}}>Title</Text>
       <Controller
         control={control}
         rules={{
@@ -58,7 +59,8 @@ const ModifyFile = ({navigation, route}) => {
         render={({field: {onChange, onBlur, value}}) => (
           <Input
           inputStyle={{
-            marginTop: 30,
+            marginTop: 10,
+            marginBottom: 10,
             margin: 40,
             backgroundColor: '#262848',
             borderRadius: 30,
@@ -83,21 +85,26 @@ const ModifyFile = ({navigation, route}) => {
         )}
         name="title"
       />
+      <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16}}>Description</Text>
       <Controller
         control={control}
         render={({field: {onChange, onBlur, value}}) => (
           <Input
           inputStyle={{
+            display: 'flex',
             marginTop: 10,
+            marginBottom: 10,
             margin: 40,
             backgroundColor: '#262848',
             borderRadius: 30,
             elevation: 17,
             color: '#EEFFFF',
             borderWidth: 1,
-            height: 50,
+            height: 200,
             paddingLeft: 20,
           }}
+            multiline={true}
+            numberOfLines={5}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}

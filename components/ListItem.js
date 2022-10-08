@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/Variables';
-import {ListItem as RNEListItem, Avatar} from '@rneui/themed';
+import {ListItem as RNEListItem, Avatar, Button} from '@rneui/themed';
 import {ButtonGroup} from '@rneui/base';
 import {useMedia} from '../hooks/ApiHooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
 import {Alert} from 'react-native';
+import ModifyFile from '../views/ModifyFile';
 
 const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
   const {deleteMedia} = useMedia();
@@ -54,14 +55,28 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
         </RNEListItem.Subtitle>
         {myFilesOnly && (
           <ButtonGroup
-            buttons={['Modify', 'Delete']}
+            containerStyle={{width:150, height:50, borderWidth: 0, backgroundColor: 'rgba(96, 113, 249, 0)', marginTop: 20}}
+            buttons={[
+            <Button
+              title={'Modify'}
+              titleStyle={{color: '#000000'}}
+              onPress={async (index) => {
+                if (index === index) {
+                  navigation.navigate('ModifyFile', singleMedia);
+                }
+              }}
+            />,
+            <Button
+            title={'Delete'}
+            buttonStyle={{backgroundColor: '#b30000'}}
+            titleStyle={{color:'#000000'}}
             onPress={async (index) => {
-              if (index === 0) {
-                navigation.navigate('ModifyFile', singleMedia);
-              } else {
+              if (index !== 0) {
                 doDelete();
               }
             }}
+            />
+          ]}
           />
         )}
       </RNEListItem.Content>
