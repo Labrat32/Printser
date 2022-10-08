@@ -106,7 +106,7 @@ const StackScreen = () => {
             component={MyFiles} />
           <Stack.Screen
             options={{
-              title:'Modify File',
+              title:'Modify Post',
               headerStyle:{
                 backgroundColor: '#262848',
                 elevation: 15,

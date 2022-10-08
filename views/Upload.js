@@ -5,11 +5,12 @@ import * as ImagePicker from 'expo-image-picker';
 import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMedia, useTag} from '../hooks/ApiHooks';
-import {Alert, View} from 'react-native';
+import {Alert, ScrollView, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
 import {applicationTag} from '../utils/Variables';
+import {KeyboardAvoidingView} from 'react-native';
 
 const Upload = ({navigation}) => {
   const [mediafile, setMediaFile] = useState(null);
@@ -88,6 +89,14 @@ const Upload = ({navigation}) => {
   };
 
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <ScrollView
+        style={{
+          paddingBottom: 200,
+        }}
+      >
     <Card containerStyle={{flex:1, margin: 0, padding:0, backgroundColor: '#262848', borderWidth:0 }}>
       <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation:10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}} style={{height: 200}}>
       <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 75}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage}>Add Image
@@ -104,20 +113,23 @@ const Upload = ({navigation}) => {
           <Input
             inputStyle={{
               marginTop: 30,
-              margin: 40,
+              marginLeft: 30,
+              marginRight: 30,
+              marginBottom: 0,
               backgroundColor: '#262848',
               borderRadius: 30,
               elevation: 17,
               color: '#EEFFFF',
-              borderWidth: 1,
+              borderWidth: 0.4,
               height: 50,
               paddingLeft: 20,
             }}
+            inputContainerStyle={{borderBottomWidth: 0}}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Title"
-            placeholderTextColor={'#EEFFFF'}
+            placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
             autoCapitalize="words"
             errorMessage={
               (errors.title?.type === 'required' && (
@@ -134,21 +146,26 @@ const Upload = ({navigation}) => {
         render={({field: {onChange, onBlur, value}}) => (
           <Input
             inputStyle={{
-              marginTop: 10,
-              margin: 40,
+              marginTop: 0,
+              marginLeft: 30,
+              marginRight: 30,
+              marginBottom: 0,
               backgroundColor: '#262848',
               borderRadius: 30,
               elevation: 17,
               color: '#EEFFFF',
-              borderWidth: 1,
-              height: 50,
+              borderWidth: 0.4,
+              height: 200,
               paddingLeft: 20,
             }}
+            multiline={true}
+            numberOfLines={5}
+            inputContainerStyle={{borderBottomWidth: 0}}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Description"
-            placeholderTextColor={'#EEFFFF'}
+            placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
           />
         )}
         name="description"
@@ -164,6 +181,8 @@ const Upload = ({navigation}) => {
         />
       </View>
     </Card>
+    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

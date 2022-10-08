@@ -38,8 +38,15 @@ const Login = ({navigation}) => {
         flex: 1,
       }}
     >
-      {showRegForm ? <RegisterForm /> : <LoginForm />}
-      <View style={{flex: 1, justifyContent: 'flex-end', marginBottom: 10,}}>
+      <View
+        style={{
+          backgroundColor: '#272848',
+          flex: 10,
+        }}
+      >
+        {showRegForm ? <RegisterForm /> : <LoginForm />}
+      </View>
+      <View style={{flex: 0.5, justifyContent: 'flex-end', marginBottom: 20}}>
         <Button
           buttonStyle={{
             width: 270,
