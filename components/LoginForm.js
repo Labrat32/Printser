@@ -78,6 +78,7 @@ const LoginForm = () => {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <Input
+                inputContainerStyle={{borderBottomWidth: 0}}
                 inputStyle={{
                   marginTop: 10,
                   margin: 40,
@@ -111,6 +112,7 @@ const LoginForm = () => {
             render={({field: {onChange, onBlur, value}}) => (
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <Input
+                  inputContainerStyle={{borderBottomWidth: 0}}
                   inputStyle={{
                     marginTop: 10,
                     margin: 40,

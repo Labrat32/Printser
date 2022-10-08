@@ -83,6 +83,7 @@ const RegisterForm = () => {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <Input
+                inputContainerStyle={{borderBottomWidth: 0}}
                 inputStyle={{
                   marginLeft: 40,
                   marginRight: 40,
@@ -126,6 +127,7 @@ const RegisterForm = () => {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <Input
+                inputContainerStyle={{borderBottomWidth: 0}}
                 inputStyle={{
                   marginLeft: 40,
                   marginRight: 40,
@@ -161,6 +163,7 @@ const RegisterForm = () => {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <Input
+                inputContainerStyle={{borderBottomWidth: 0}}
                 inputStyle={{
                   marginLeft: 40,
                   marginRight: 40,
@@ -199,6 +202,7 @@ const RegisterForm = () => {
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <Input
+                inputContainerStyle={{borderBottomWidth: 0}}
                 inputStyle={{
                   marginLeft: 40,
                   marginRight: 40,
@@ -245,6 +249,7 @@ const RegisterForm = () => {
             render={({field: {onChange, onBlur, value}}) => (
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <Input
+                  inputContainerStyle={{borderBottomWidth: 0}}
                   inputStyle={{
                     marginLeft: 40,
                     marginRight: 40,
