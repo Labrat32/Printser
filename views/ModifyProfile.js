@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useContext, useEffect, useState} from 'react';
 import {Controller, useForm} from 'react-hook-form';
-import {Alert, KeyboardAvoidingView, ScrollView} from 'react-native';
+import {Alert, Keyboard, KeyboardAvoidingView, ScrollView, TouchableWithoutFeedback} from 'react-native';
 import {MainContext} from '../contexts/MainContext';
 import {useTag, useUser} from '../hooks/ApiHooks';
 import PropTypes from 'prop-types';
@@ -36,7 +36,7 @@ const ModifyProfile = ({navigation}) => {
     handleSubmit,
     formState: {errors},
   } = useForm({
-    defaultValues: {username: user.username, password: user.password, email: user.email},
+    defaultValues: {username: user.username, password: user.password, email: user.email, full_name: user.full_name},
   });
 
   const onSubmit = async (userData) => {
@@ -74,8 +74,8 @@ const ModifyProfile = ({navigation}) => {
       >
     <Card containerStyle={{flex:1, margin: 0, padding: 0, backgroundColor: '#262848', borderColor: '#262848'}}>
       <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50, elevation: 10}} style={{height: 200}}/>
-      <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 0}}>Email</Text>
-      <Controller
+      <Text style={{color:'rgba(255, 255, 255, 0.6)', marginLeft: 40, fontSize: 16, marginTop: 15}}>Full name</Text>
+        <Controller
             control={control}
             rules={{
               required: true,
@@ -87,7 +87,7 @@ const ModifyProfile = ({navigation}) => {
                 marginTop: 2,
                 marginLeft: 30,
                 marginRight: 30,
-                marginBottom: 0,
+                marginBottom: -15,
                 margin: 40,
                 backgroundColor: '#262848',
                 borderRadius: 30,
@@ -101,7 +101,7 @@ const ModifyProfile = ({navigation}) => {
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
-                placeholder="Email"
+                placeholder="Full name"
                 autoCapitalize="words"
                 errorMessage={
                   (errors.title?.type === 'required' && (
@@ -111,9 +111,10 @@ const ModifyProfile = ({navigation}) => {
                 }
               />
             )}
-            name="email"
+            name="full_name"
           />
-      <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 0}}>Username</Text>
+
+      <Text style={{color:'rgba(255, 255, 255, 0.6)', marginLeft: 40, fontSize: 16, marginTop: 0}}>Username</Text>
         <Controller
             control={control}
             rules={{
@@ -126,7 +127,7 @@ const ModifyProfile = ({navigation}) => {
                 marginTop: 2,
                 marginLeft: 30,
                 marginRight: 30,
-                marginBottom: 0,
+                marginBottom: -15,
                 margin: 40,
                 backgroundColor: '#262848',
                 borderRadius: 30,
@@ -152,7 +153,46 @@ const ModifyProfile = ({navigation}) => {
             )}
             name="username"
           />
-          <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 0}}>Password</Text>
+          <Text style={{color:'rgba(255, 255, 255, 0.6)', marginLeft: 40, fontSize: 16, marginTop: 0}}>Email</Text>
+      <Controller
+            control={control}
+            rules={{
+              required: true,
+              minLength: 3,
+            }}
+            render={({field: {onChange, onBlur, value}}) => (
+              <Input
+              inputStyle={{
+                marginTop: 2,
+                marginLeft: 30,
+                marginRight: 30,
+                marginBottom: -15,
+                margin: 40,
+                backgroundColor: '#262848',
+                borderRadius: 30,
+                elevation: 8,
+                color: '#EEFFFF',
+                borderWidth: 0.4,
+                height: 50,
+                paddingLeft: 20,
+              }}
+                inputContainerStyle={{borderBottomWidth: 0}}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                placeholder="Email"
+                autoCapitalize="words"
+                errorMessage={
+                  (errors.title?.type === 'required' && (
+                    <Text>This is required.</Text>
+                  )) ||
+                  (errors.title?.type === 'minLength' && <Text>Min 3 chars!</Text>)
+                }
+              />
+            )}
+            name="email"
+          />
+          <Text style={{color:'rgba(255, 255, 255, 0.6)', marginLeft: 40, fontSize: 16, marginTop: 0}}>Password</Text>
         <Controller
             control={control}
             rules={{
@@ -180,7 +220,7 @@ const ModifyProfile = ({navigation}) => {
                 onChangeText={onChange}
                 value={value}
                 placeholder="Password"
-                autoCapitalize="words"
+                autoCapitalize="none"
                 errorMessage={
                   (errors.title?.type === 'required' && (
                     <Text>This is required.</Text>

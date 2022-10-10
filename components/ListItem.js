@@ -49,12 +49,12 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
         <RNEListItem.Title style={{color: '#EEFFFF'}} numberOfLines={1} h4>
           {singleMedia.title}
         </RNEListItem.Title>
-        <RNEListItem.Subtitle style={{color: '#EEFFFF'}} numberOfLines={6}>
+        <RNEListItem.Subtitle style={{color: '#EEFFFF', marginLeft: 11}} numberOfLines={6}>
           {singleMedia.description}
         </RNEListItem.Subtitle>
         {myFilesOnly && (
           <ButtonGroup
-            containerStyle={{width:150, height:50, borderWidth: 0, backgroundColor: 'rgba(96, 113, 249, 0)', marginTop: 20}}
+            containerStyle={{width:150, height:50, borderWidth: 0, backgroundColor: 'rgba(96, 113, 249, 0)', marginTop: 5}}
             buttons={[
             <Button
               title={'Modify'}

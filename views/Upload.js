@@ -157,6 +157,7 @@ const Upload = ({navigation}) => {
               borderWidth: 0.4,
               height: 200,
               paddingLeft: 20,
+
             }}
             multiline={true}
             numberOfLines={5}
@@ -164,7 +165,7 @@ const Upload = ({navigation}) => {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="Description, Hometown, Printer type, Print area, price/h, etc.."
+            placeholder="Description: Hometown, Printer type, Print area, price/h"
             placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
           />
         )}

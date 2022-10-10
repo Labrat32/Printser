@@ -130,11 +130,11 @@ const useUser = () => {
   const putUser = async (token, userData) => {
     const options = {
       method: 'PUT',
-      headers: {'x-access-token': token},
+      headers: {'Content-Type': 'application/json', 'x-access-token': token},
       body: JSON.stringify(userData),
     };
     try {
-      return await doFetch(apiUrl + 'users' + username, options);
+      return await doFetch(apiUrl + 'users', options);
     } catch (error) {
       throw new Error(error.message);
     }

@@ -58,7 +58,7 @@ const ModifyFile = ({navigation, route}) => {
       >
     <Card containerStyle={{flex:1, margin: 0, backgroundColor: '#262848', borderColor: '#262848'}}>
       <Card.Image source={{uri: mediaUrl + file.filename}} style={{height: 200}}/>
-      <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 20}}>Title</Text>
+      <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 15}}>Title</Text>
       <Controller
         control={control}
         rules={{
@@ -71,7 +71,7 @@ const ModifyFile = ({navigation, route}) => {
             marginTop: 10,
             marginLeft: 30,
             marginRight: 30,
-            marginBottom: 0,
+            marginBottom: -15,
             margin: 40,
             backgroundColor: '#262848',
             borderRadius: 30,

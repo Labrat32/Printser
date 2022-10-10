@@ -73,7 +73,7 @@ const Product = ({route}) => {
           <FullSizeImage
             source={{uri: mediaUrl + filename}}
             PlaceholderContent={<ActivityIndicator />}
-            style={{marginBottom: 12}}
+            style={{marginBottom: 12, borderBottomLeftRadius: 45, borderBottomRightRadius: 45}}
           />
         ) : (
           <Video
@@ -92,12 +92,18 @@ const Product = ({route}) => {
         </ListItem>
         <ListItem containerStyle={{display: 'flex', flexDirection:'column', backgroundColor: '#262848', margin: 10, borderRadius: 10, borderWidth: 1, borderColor: '#000000', elevation: 4}}>
           <View style={{flexDirection: 'row', display: 'flex', padding: 5, borderBottomWidth: 1, borderBottomColor: '#EEFFFF'}}>
-            <Text style={{color: '#EEFFFF', fontSize: 17, marginRight: 170}}>Seller info</Text>
+            <Text style={{color: '#EEFFFF', fontSize: 17, marginRight: 170, marginTop: 5}}>Seller info</Text>
             <Avatar avatarStyle={{borderRadius: 15}} source={{uri: avatar}}/>
           </View>
-          <View style={{flexDirection: 'column'}}>
-            <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.username}</Text>
-            <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.email}</Text>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={{color: '#EEFFFF', marginTop: 10, borderRightWidth: 1, borderRightColor: '#EEFFFF', marginRight: 30, paddingRight: 30}}>Username</Text>
+              <Text style={{color: '#EEFFFF', marginTop: 10, borderRightWidth: 1, borderRightColor: '#EEFFFF', marginRight: 30}}>Contact</Text>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.username}</Text>
+              <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.email}</Text>
+            </View>
           </View>
         </ListItem>
       </Card>

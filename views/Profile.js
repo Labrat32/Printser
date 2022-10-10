@@ -48,6 +48,14 @@ const Profile = ({navigation}) => {
         </ListItem>
 
         <ListItem containerStyle={styles.lists}>
+          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
+          <View style={{display:'flex', flexDirection: 'column'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Username</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.username}</Text>
+          </View>
+        </ListItem>
+
+        <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'contact-mail', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Email</Text>
@@ -58,16 +66,8 @@ const Profile = ({navigation}) => {
         <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
-            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Username</Text>
-            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.username}</Text>
-          </View>
-        </ListItem>
-
-        <ListItem containerStyle={styles.lists}>
-          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
-          <View style={{display:'flex', flexDirection: 'column'}}>
-            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Password</Text>
-            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.password}</Text>
+            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Id</Text>
+            <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.user_id}</Text>
           </View>
         </ListItem>
 
