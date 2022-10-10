@@ -4,7 +4,7 @@ import {Controller, useForm} from 'react-hook-form';
 import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMedia} from '../hooks/ApiHooks';
-import {Alert, Keyboard, KeyboardAvoidingView, ScrollView, TouchableWithoutFeedback} from 'react-native';
+import {Alert, KeyboardAvoidingView, ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';

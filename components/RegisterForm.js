@@ -27,10 +27,6 @@ const RegisterForm = () => {
     try {
       const result = await postUser(userData);
       console.log(result);
-      // autologin (postlogin -> save token -> setloggedin to true)
-      // const userData = await postLogin(loginCredentials);
-      // await AsyncStorage.setItem('userToken', userData.token);
-      // setIsLoggedIn(true);
     } catch (error) {
       console.error('Registerform error', error);
     }

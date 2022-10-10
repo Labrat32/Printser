@@ -37,8 +37,8 @@ const Profile = ({navigation}) => {
   return (
     <View style={{flex:1, backgroundColor: '#272848'}}>
       <Card containerStyle={{backgroundColor: '#262848', borderWidth: 0, elevation: 0, margin: 0, padding: 0, flex: 1}}>
-        <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}} style={{height: 200}}/>
-
+        <Card.Image source={{uri: avatar}} containerStyle={{borderBottomLeftRadius: 50, borderBottomRightRadius: 50, elevation: 10}} style={{height: 200}}>
+        </Card.Image>
         <ListItem containerStyle={styles.lists}>
           <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
           <View style={{display:'flex', flexDirection: 'column'}}>
@@ -60,14 +60,6 @@ const Profile = ({navigation}) => {
           <View style={{display:'flex', flexDirection: 'column'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Username</Text>
             <Text style={{color: '#EEFFFF', marginLeft: 15}}>{user.username}</Text>
-          </View>
-        </ListItem>
-
-        <ListItem containerStyle={styles.lists}>
-          <Avatar icon={{name: 'person', type: 'material'}} containerStyle={{backgroundColor: '#262848'}}/>
-          <View style={{display:'flex', flexDirection: 'column'}}>
-            <Text style={{color: 'rgba(255, 255, 255, 0.6)'}}>Hometown</Text>
-            <Text style={{color: '#EEFFFF', marginLeft: 15}}></Text>
           </View>
         </ListItem>
 
@@ -118,7 +110,7 @@ const Profile = ({navigation}) => {
 const styles = StyleSheet.create({
   lists: {
     backgroundColor: '#262848',
-    elevation: 14,
+    elevation: 6,
     borderRadius: 30,
     marginTop: 20,
     padding: 6,

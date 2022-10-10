@@ -98,7 +98,7 @@ const Upload = ({navigation}) => {
         }}
       >
     <Card containerStyle={{flex:1, margin: 0, padding:0, backgroundColor: '#262848', borderWidth:0 }}>
-      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation:10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}} style={{height: 200}}>
+      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation: 10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}} style={{height: 200}}>
       <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 75}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage}>Add Image
       <Icon name="add-circle-outline" color={'#000000'} style={{marginLeft: 3}} />
       </Button>
@@ -118,7 +118,7 @@ const Upload = ({navigation}) => {
               marginBottom: 0,
               backgroundColor: '#262848',
               borderRadius: 30,
-              elevation: 17,
+              elevation: 10,
               color: '#EEFFFF',
               borderWidth: 0.4,
               height: 50,
@@ -135,7 +135,7 @@ const Upload = ({navigation}) => {
               (errors.title?.type === 'required' && (
                 <Text style={{color: '#EEFFFF'}}>This is required.</Text>
               )) ||
-              (errors.title?.type === 'minLength' && <Text>Min 3 chars!</Text>)
+              (errors.title?.type === 'minLength' && <Text style={{color: '#EEFFFF'}}>Min 3 chars!</Text>)
             }
           />
         )}
@@ -152,7 +152,7 @@ const Upload = ({navigation}) => {
               marginBottom: 0,
               backgroundColor: '#262848',
               borderRadius: 30,
-              elevation: 17,
+              elevation: 10,
               color: '#EEFFFF',
               borderWidth: 0.4,
               height: 200,
@@ -164,17 +164,18 @@ const Upload = ({navigation}) => {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="Description"
+            placeholder="Description, Hometown, Printer type, Print area, price/h, etc.."
             placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
           />
         )}
         name="description"
       />
+
       <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', padding: 30}}>
         <Button buttonStyle={{backgroundColor: '#EEFFFF', borderRadius: 30, width: 120}} title="Reset" titleStyle={{color: '#000000'}} onPress={resetForm} />
         <Button
           buttonStyle={{backgroundColor: '#54C1F0', borderRadius: 30, width: 120}}
-          title="Upload media"
+          title="Make a post"
           titleStyle={{color: '#000000'}}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}

@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {ScrollView, ActivityIndicator} from 'react-native';
+import {ScrollView, ActivityIndicator, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/Variables';
 import {Card, ListItem, Text, Avatar} from '@rneui/themed';
@@ -90,9 +90,15 @@ const Product = ({route}) => {
         <ListItem containerStyle={{backgroundColor: '#262848'}}>
           <Text style={{color: '#EEFFFF', marginLeft: 25}}>{description}</Text>
         </ListItem>
-        <ListItem containerStyle={{backgroundColor: '#262848', marginLeft: 25}}>
-          <Avatar avatarStyle={{borderRadius: 15}} source={{uri: avatar}} />
-          <Text style={{color: '#EEFFFF'}}>{user.username}</Text>
+        <ListItem containerStyle={{display: 'flex', flexDirection:'column', backgroundColor: '#262848', margin: 10, borderRadius: 10, borderWidth: 1, borderColor: '#000000', elevation: 4}}>
+          <View style={{flexDirection: 'row', display: 'flex', padding: 5, borderBottomWidth: 1, borderBottomColor: '#EEFFFF'}}>
+            <Text style={{color: '#EEFFFF', fontSize: 17, marginRight: 170}}>Seller info</Text>
+            <Avatar avatarStyle={{borderRadius: 15}} source={{uri: avatar}}/>
+          </View>
+          <View style={{flexDirection: 'column'}}>
+            <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.username}</Text>
+            <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.email}</Text>
+          </View>
         </ListItem>
       </Card>
     </ScrollView>

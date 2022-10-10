@@ -12,11 +12,14 @@ import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import MyFiles from '../views/MyFiles';
 import ModifyFile from '../views/ModifyFile';
+import ModifyProfile from '../views/ModifyProfile';
+import PropTypes from 'prop-types';
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-const TabScreen = () => {
+const TabScreen = ({navigation}) => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -53,7 +56,17 @@ const TabScreen = () => {
         options={{tabBarIcon: () => <Icon name="person" color={'#EEFFFF'}/>,
         title:'Profile',
         headerStyle:{backgroundColor: '#262848', elevation: 15, shadowColor: '#000000', borderBottomWidth: 0.2, borderBottomColor: '#000000'},
-        headerTintColor: '#EEFFFF'
+        headerTintColor: '#EEFFFF',
+        headerRight: () =>
+        <Icon
+          name='edit'
+          color={'#EEFFFF'}
+          iconStyle={{fontSize: 33}}
+          style={{marginRight: 10}}
+          onPress={() => {
+            navigation.navigate('ModifyProfile');
+          }}
+        />,
       }}
       />
     </Tab.Navigator>
@@ -118,6 +131,20 @@ const StackScreen = () => {
             }}
             name="ModifyFile"
             component={ModifyFile} />
+          <Stack.Screen
+            options={{
+              title:'Modify Profile',
+              headerStyle:{
+                backgroundColor: '#262848',
+                elevation: 15,
+                shadowColor: '#000000',
+                borderBottomWidth: 0.2,
+                borderBottomColor: '#000000'
+              },
+              headerTintColor: '#EEFFFF'
+            }}
+            name="ModifyProfile"
+            component={ModifyProfile} />
         </>
       ) : (
         <Stack.Screen
@@ -136,6 +163,10 @@ const Navigator = () => {
       <StackScreen />
     </NavigationContainer>
   );
+};
+
+Navigator.propTypes = {
+  navigation: PropTypes.object,
 };
 
 export default Navigator;

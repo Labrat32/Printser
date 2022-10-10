@@ -7,7 +7,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
 import {Alert} from 'react-native';
-import ModifyFile from '../views/ModifyFile';
 
 const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
   const {deleteMedia} = useMedia();
@@ -34,7 +33,7 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
 
   return (
     <RNEListItem
-      containerStyle={{backgroundColor: 'rgba(96, 113, 249, 0.2)', padding: 0, marginLeft: 10, marginRight: 10, margin: 8, borderRadius: 10, height: 180, borderBottomWidth: 0}}
+      containerStyle={{backgroundColor: 'rgba(96, 113, 249, 0.2)', padding: 0, marginLeft: 10, marginRight: 10, margin: 8, borderRadius: 10, height: 180, borderWidth: 0.4, borderColor: '#000000'}}
       bottomDivider
       onPress={() => {
         navigation.navigate('Product', singleMedia);
@@ -50,7 +49,7 @@ const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
         <RNEListItem.Title style={{color: '#EEFFFF'}} numberOfLines={1} h4>
           {singleMedia.title}
         </RNEListItem.Title>
-        <RNEListItem.Subtitle style={{color: '#EEFFFF'}} numberOfLines={4}>
+        <RNEListItem.Subtitle style={{color: '#EEFFFF'}} numberOfLines={6}>
           {singleMedia.description}
         </RNEListItem.Subtitle>
         {myFilesOnly && (
