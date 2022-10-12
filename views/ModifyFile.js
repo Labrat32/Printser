@@ -49,6 +49,7 @@ const ModifyFile = ({navigation, route}) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex: 1}}
     >
       <ScrollView
         style={{
@@ -56,8 +57,8 @@ const ModifyFile = ({navigation, route}) => {
           paddingBottom: 50,
         }}
       >
-    <Card containerStyle={{flex:1, margin: 0, backgroundColor: '#262848', borderColor: '#262848'}}>
-      <Card.Image source={{uri: mediaUrl + file.filename}} style={{height: 200}}/>
+    <Card containerStyle={{flex:1, margin: 0, backgroundColor: '#262848', borderColor: '#262848', padding: 0}}>
+      <Card.Image source={{uri: mediaUrl + file.filename}} style={{height: 200, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}/>
       <Text style={{color:'#EEFFFF', marginLeft: 40, fontSize: 16, marginTop: 15}}>Title</Text>
       <Controller
         control={control}

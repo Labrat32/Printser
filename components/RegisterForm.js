@@ -65,6 +65,38 @@ const RegisterForm = () => {
         <Controller
           control={control}
           rules={{
+            required: false,
+            minLength: 3,
+          }}
+          render={({field: {onChange, onBlur, value}}) => (
+            <Input
+              inputStyle={{
+                marginLeft: 30,
+                marginRight: 30,
+                marginTop: 0,
+                marginBottom: 0,
+                height: 50,
+                backgroundColor: '#262848',
+                borderRadius: 30,
+                elevation: 10,
+                color: '#EEFFFF',
+                borderWidth: 0.4,
+                paddingLeft: 20,
+              }}
+              inputContainerStyle={{borderBottomWidth: 0}}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              secureTextEntry={false}
+              placeholder="Fullname"
+              placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
+            />
+          )}
+          name="full_name"
+        />
+        <Controller
+          control={control}
+          rules={{
             required: true,
             minLength: 2,
             validate: async (value) => {
@@ -106,39 +138,6 @@ const RegisterForm = () => {
             />
           )}
           name="username"
-        />
-
-        <Controller
-          control={control}
-          rules={{
-            required: false,
-            minLength: 3,
-          }}
-          render={({field: {onChange, onBlur, value}}) => (
-            <Input
-              inputStyle={{
-                marginLeft: 30,
-                marginRight: 30,
-                marginTop: 0,
-                marginBottom: 0,
-                height: 50,
-                backgroundColor: '#262848',
-                borderRadius: 30,
-                elevation: 10,
-                color: '#EEFFFF',
-                borderWidth: 0.4,
-                paddingLeft: 20,
-              }}
-              inputContainerStyle={{borderBottomWidth: 0}}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              secureTextEntry={false}
-              placeholder="Fullname"
-              placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
-            />
-          )}
-          name="full_name"
         />
 
         <Controller

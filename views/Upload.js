@@ -94,6 +94,7 @@ const Upload = ({navigation}) => {
     >
       <ScrollView
         style={{
+          backgroundColor: '#262848',
           paddingBottom: 200,
         }}
       >
