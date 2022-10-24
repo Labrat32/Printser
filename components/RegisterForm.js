@@ -1,11 +1,13 @@
 import {Controller, useForm} from 'react-hook-form';
-import {Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, View} from 'react-native';
+import {Alert, Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, View} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
 import {useLogin, useUser} from '../hooks/ApiHooks';
 import {Button, Icon, Input, Text} from '@rneui/themed';
 import {ScrollView} from 'react-native';
+
+
 
 const RegisterForm = () => {
   const {isLoggedIn, setIsLoggedIn} = useContext(MainContext);
@@ -27,6 +29,7 @@ const RegisterForm = () => {
     try {
       const result = await postUser(userData);
       console.log(result);
+      Alert.alert('User created succesfully.')
     } catch (error) {
       console.error('Registerform error', error);
     }

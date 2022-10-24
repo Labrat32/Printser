@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import {Input, Button, Text, Card, Icon} from '@rneui/themed';
 import {Controller, useForm} from 'react-hook-form';
 import * as ImagePicker from 'expo-image-picker';
 import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useMedia, useTag} from '../hooks/ApiHooks';
+import {useMedia, useTag, useUser} from '../hooks/ApiHooks';
 import {Alert, ScrollView, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {useContext} from 'react';
@@ -15,7 +15,7 @@ import {KeyboardAvoidingView} from 'react-native';
 const Upload = ({navigation}) => {
   const [mediafile, setMediaFile] = useState(null);
   const [mediatype, setMediaType] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading, user] = useState(false);
   const {postMedia} = useMedia();
   const {postTag} = useTag();
   const {update, setUpdate} = useContext(MainContext);
@@ -99,7 +99,7 @@ const Upload = ({navigation}) => {
         }}
       >
     <Card containerStyle={{flex:1, margin: 0, padding:0, backgroundColor: '#262848', borderWidth:0 }}>
-      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation: 10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || false}} style={{height: 200}}>
+      <Card.Image containerStyle={{borderBottomLeftRadius: 45, borderBottomRightRadius: 45, elevation: 10, backgroundColor: '#EEFFFF'}} source={{uri: mediafile || 'https://via.placeholder.com/320x240'}} style={{height: 200}}>
       <Button buttonStyle={{backgroundColor: 'transparent', borderRadius: 30, width: 120, alignSelf: 'center', margin:10, marginTop: 75}} titleStyle={{color: '#000000', fontSize: 14}} title="Choose image" onPress={pickImage}>Add Image
       <Icon name="add-circle-outline" color={'#000000'} style={{marginLeft: 3}} />
       </Button>

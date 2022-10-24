@@ -11,7 +11,7 @@ import {useTag} from '../hooks/ApiHooks';
 import {MainContext} from '../contexts/MainContext';
 
 const Product = ({route}) => {
-  const {filename, title, description, user_id, media_type } = route.params;
+  const {filename, title, description, user_id, username, media_type } = route.params;
   const {user} = useContext(MainContext);
   const [videoRef, setVideoRef] = useState(null);
   const [avatar, setAvatar] = useState('https://placekitten.com/140');
@@ -26,6 +26,7 @@ const Product = ({route}) => {
       console.error('fetchAvatar', error.message);
     }
   };
+
 
   const handleVideoRef = (component) => {
     setVideoRef(component);
@@ -97,12 +98,12 @@ const Product = ({route}) => {
           </View>
           <View style={{flexDirection: 'row'}}>
             <View style={{flexDirection: 'column'}}>
-              <Text style={{color: '#EEFFFF', marginTop: 10, borderRightWidth: 1, borderRightColor: '#EEFFFF', marginRight: 30, paddingRight: 30}}>Username</Text>
+              <Text style={{color: '#EEFFFF', marginTop: 10, borderRightWidth: 1, borderRightColor: '#EEFFFF', marginRight: 30, paddingRight: 30}}>Userid</Text>
               <Text style={{color: '#EEFFFF', marginTop: 10, borderRightWidth: 1, borderRightColor: '#EEFFFF', marginRight: 30}}>Contact</Text>
             </View>
             <View style={{flexDirection: 'column'}}>
-              <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.username}</Text>
-              <Text style={{color: '#EEFFFF', marginTop: 10}}>{user.email}</Text>
+              <Text style={{color: '#EEFFFF', marginTop: 10}}>{user_id}</Text>
+              <Text style={{color: '#EEFFFF', marginTop: 10}}>{}</Text>
             </View>
           </View>
         </ListItem>

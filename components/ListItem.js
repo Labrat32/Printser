@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/Variables';
-import {ListItem as RNEListItem, Avatar, Button} from '@rneui/themed';
+import {ListItem as RNEListItem, Avatar, Button, Text} from '@rneui/themed';
 import {ButtonGroup} from '@rneui/base';
 import {useMedia} from '../hooks/ApiHooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
-import {Alert} from 'react-native';
+import {Alert, View} from 'react-native';
 
 const ListItem = ({singleMedia, navigation, myFilesOnly}) => {
   const {deleteMedia} = useMedia();
